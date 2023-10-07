@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int main() {
+    // u broju pronadji cifre koje se razlikuju
+
+    int c;
+    cin >> c;
+    int cpom = c;
+    int b = 0;
+
+    while (cpom > 0) {
+        cpom = cpom / 10;
+        b++;
+    }
+
+    int brojac = 0;
+    cpom = c; // Resetiramo cpom na početnu vrijednost
+    for (int i = 1; i <= b; i++) {
+        int k = cpom / 10;
+        int cif = cpom % 10;
+        bool mrk = true;
+        cpom = k; // Ažuriramo cpom
+        for (int j = 1; j <= b - i; j++) {
+            if (k % 10 == cif) {
+                mrk = false;
+                break;
+            }
+            k = k / 10;
+        }
+        if (mrk) {
+            brojac++;
+        }
+    }
+    cout << brojac;
+
+    return 0;
+}
