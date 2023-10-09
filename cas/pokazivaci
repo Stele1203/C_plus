@@ -7,6 +7,17 @@ using namespace std;
 int niz2[1000];//radi na data segmentu
 
 
+bool duplikati(int* a, int n){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(a[i]==a[j]){
+                return true;
+            }
+        }
+    }
+}
+
+
 void zbir(int* a,int n,int* b, int m){
     int d=(m>n?m:n)+1;
     int* rezultat = new int[d];
