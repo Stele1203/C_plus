@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   /* int* ptr;
+    int a=5;
+    ptr=&a;
+
+    cout << ptr << endl;
+
+    cout <<*ptr<< endl;
+
+    *ptr=*ptr+5;
+
+    cout <<a<< endl;*/
+    
+    int* ptr;
+    int a =5,b=0;
+    *ptr=&a;
+    *ptr=*ptr+2;
+    
+    cout <<a+b<<endl;
+    
+    return 0;
+}
