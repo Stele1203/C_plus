@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+
+    void print_array(int* a, int n){
+        for(int i=0;i<n;i++){
+            cout <<a[i]<<" ";
+        }
+    }
+
+
+    void calculate_Two_Arrays(int* a, int n,int* b, int m){
+
+
+
+        int k=0;
+        if(n>m){
+            k=n;
+        }else if (m>n){
+            k=m;
+        }else{
+            k=m+1;
+        }
+
+        int* arr= new int[k];
+
+        int i=n-1;
+        int j=m-1;
+        int d=k-1;
+        int ostatak=0;
+
+        while(i>=0 && j>=0){
+            if(((a[i]+b[j])%10+ostatak)>=10){
+                arr[d]=((a[i]+b[j])%10+ostatak)%10;
+                ostatak=((a[i]+b[j])%10+ostatak)/10;
+            }else {
+                arr[d] = (a[i] + b[j]) % 10 + ostatak;
+                ostatak = (a[i] + b[j]) / 10;
+            }
+            d--;
+            j--;
+            i--;
+        }
+
+        while (i>=0){
+            arr[d]=a[i]+ostatak;
+            i--;
+            d--;
+        }
+
+        while(j>=0){
+            arr[d]=b[j]+ostatak;
+            d--;
+            j--;
+        }
+
+
+        for(int i=0;i<k;i++){
+            cout <<arr[i]<<" ";
+        }
+    }
+
+int main() {
+    int a[]={1,2,3,4};
+    int b[]={2,9,3,6,6};
+    calculate_Two_Arrays(a,4,b,5);
+
+
+}
