@@ -3,14 +3,16 @@ using namespace std;
 
     int minArray(int a, int* b,int n){
         int min=INT_MAX;
+        int index=INT_MAX;
         for(int i=0;i<n;i++){
             if(b[i]>a){
                 if(min>b[i]){
                     min=b[i];
+                    index=i;
                 }
             }
         }
-        return min;
+        return index;
 
     }
 
