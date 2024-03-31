@@ -1,5 +1,16 @@
+struct vojniciKomparator{
+    bool operator()(pair<int,int>&a, pair<int,int>&b){
+        if (a.first != b.first) {
+            return a.first > b.first;
+        } else {
+            return a.second < b.second;
+        }
+    }
+};
+
+
 void vojnici(vector<vector<int>>matrix,int n,int m,int k){
-    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>maxHeap;
+    priority_queue<pair<int,int>,vector<pair<int,int>>,vojniciKomparator>maxHeap;
 
     for(int i=0;i<n;i++){
         int sum=0;
